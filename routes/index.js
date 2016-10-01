@@ -11,7 +11,16 @@ router.get('/hello',function (req,res,next) {
 });
 router.get('/hello/:id',function (req,res,next) {
     res.set('Content-Type', 'text/html');
-    res.send('helloword' + req.params.id);
+    res.write('hi');
+    res.write('helloword' + req.params.id);
+
+    next();
 });
+router.get('/hello/:id',function (req,res,next) {
+    res.write('hi');
+    res.send();
+
+});
+
 
 module.exports = router;
